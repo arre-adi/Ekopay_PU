@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.ekopay_pu"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.ekopay_pu"
@@ -59,6 +59,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.common.android)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.play.services.mlkit.barcode.scanning)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,4 +69,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //navigation
+    implementation (libs.androidx.navigation.compose)
+    //camera
+    val camerax_version = "1.5.0-alpha06"
+    implementation("androidx.camera:camera-mlkit-vision:${camerax_version}")
+    implementation("androidx.camera:camera-core:${camerax_version}")
+    implementation("androidx.camera:camera-camera2:${camerax_version}")
+
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+
 }
+
