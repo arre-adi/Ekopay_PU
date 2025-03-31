@@ -8,27 +8,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
-import androidx.navigation.NavController
 import com.example.ekopay.bottomnav.MainScreen
-import com.example.ekopay_pu.Screens.GreenCreditApp
-import com.example.ekopay_pu.ui.theme.Ekopay_PUTheme
-
+import com.example.ekopay_pu.ui.theme.EKOPAY_PUTheme
 class MainActivity : ComponentActivity() {
     private val requestCameraPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
             setContent {
+                EKOPAY_PUTheme {
 
                     MainScreen()
+                }
             }
         } else {
             // Permission denied, close the app
@@ -46,8 +38,10 @@ class MainActivity : ComponentActivity() {
             == PackageManager.PERMISSION_GRANTED) {
             // If permission is already granted, proceed
             setContent {
-                    MainScreen()
+                EKOPAY_PUTheme {
 
+                    MainScreen()
+                }
             }
         } else {
             // Request permission

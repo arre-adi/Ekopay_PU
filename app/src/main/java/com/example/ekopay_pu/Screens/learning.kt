@@ -1,6 +1,6 @@
 package com.example.ekopay_pu.Screens
 
-//import GeminiTextField
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,10 +26,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.ekopay_pu.R
+import com.example.ekopay_pu.ui.theme.Green1
+import com.example.ekopay_pu.ui.theme.White1
 
 
 @Composable
@@ -40,6 +45,8 @@ fun LearningScreen() {
             .fillMaxSize()
             .padding(16.dp)
     ) {
+
+        item{}
         item {
             Text(
                 text = "Learn more",
@@ -181,46 +188,46 @@ fun VideoTutorials() {
                 "Recycling tips and tricks"
             )
 
-//            items(tutorialTitles) { title ->
-//                VideoTutorialItem(title)
-//            }
+            items(tutorialTitles) { title ->
+                VideoTutorialItem(title)
+            }
         }
     }
 }
 
-//@Composable
-//fun VideoTutorialItem(title: String) {
-//    Column(
-//        modifier = Modifier
-//            .width(140.dp)
-//            .height(200.dp)
-//            .clip(RoundedCornerShape(12.dp))
-//            .background(Green1)
-//            .padding(8.dp),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//        verticalArrangement = Arrangement.SpaceBetween
-//    ) {
-//        Box(
-//            modifier = Modifier
-//                .weight(1f)
-//                .fillMaxWidth(),
-//            contentAlignment = Alignment.Center
-//        ) {
-//            Icon(
-//                ImageVector.vectorResource(id = R.drawable.baseline_play_arrow_24),
-//                contentDescription = "Play",
-//                tint = White1,
-//                modifier = Modifier.size(54.dp)
-//            )
-//        }
-//        Spacer(modifier = Modifier.height(4.dp))
-//        Text(
-//            text = title,
-//            color = Color.Black,
-//            style = MaterialTheme.typography.bodyMedium,
-//            maxLines = 2
-//        )
-//    }
-//}
-//
-//
+@Composable
+fun VideoTutorialItem(title: String) {
+    Column(
+        modifier = Modifier
+            .width(140.dp)
+            .height(200.dp)
+            .clip(RoundedCornerShape(12.dp))
+            .background(Green1)
+            .padding(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                ImageVector.vectorResource(id = R.drawable.baseline_play_arrow_24),
+                contentDescription = "Play",
+                tint = White1,
+                modifier = Modifier.size(54.dp)
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+        Text(
+            text = title,
+            color = Color.Black,
+            style = MaterialTheme.typography.bodyMedium,
+            maxLines = 2
+        )
+    }
+}
+
+

@@ -17,8 +17,15 @@ import com.example.ekopay.metroo.MetroPriceScreen
 import com.example.ekopay.metroo.SelectMetroScreen
 import com.example.ekopay.qrscan.QRScannerScreen
 import com.example.ekopay.qrscan.SuccessScreen
+import com.example.ekopay_pu.Screens.AddMoney
+import com.example.ekopay_pu.Screens.CrowdFundingPaymentScreen
+import com.example.ekopay_pu.Screens.FinalTradingScreen
+import com.example.ekopay_pu.Screens.FundingPreview
 import com.example.ekopay_pu.Screens.GreenCreditApp
 import com.example.ekopay_pu.Screens.LearningScreen
+import com.example.ekopay_pu.Screens.ProductCardfinal
+import com.example.ekopay_pu.Screens.ShoppingScreen
+import com.example.ekopay_pu.Screens.TradingScreen
 import com.example.ekopay_pu.Screens.TransactionHistoryScreen
 import com.example.ekopay_pu.Screens.paymentcompletescreen
 
@@ -45,12 +52,12 @@ fun BottomNavGraph(navController: NavHostController) {
             TransactionHistoryScreen()
         }
 
-//        composable(route = BottomBarScreen.Shopping.route) {
-//            ShoppingScreen(navController)
-//        }
-//        composable(route = BottomBarScreen.Trade.route) {
-//            TradingScreen(navController)
-//        }
+        composable(route = BottomBarScreen.Shopping.route) {
+            ShoppingScreen(navController)
+        }
+        composable(route = BottomBarScreen.Trade.route) {
+            TradingScreen(navController)
+        }
 //        composable("submitEcoBrick") {
 //            EcoBrickScreen()
 //        }
@@ -83,24 +90,24 @@ fun BottomNavGraph(navController: NavHostController) {
         composable("payment_done"){
             paymentcompletescreen()
         }
-//
-//        composable("crowwwd_funding"){
-//            FundingPreview(navController)
-//        }
-//        composable(
-//            route = "finalTrading/{amount}",
-//            arguments = listOf(navArgument("amount") { type = NavType.StringType })
-//        ) { backStackEntry ->
-//            val amount = backStackEntry.arguments?.getString("amount") ?: ""
-//            FinalTradingScreen(navController, amount)
-//        }
-//
-//
-//        composable("productCardFinal") {
-//            ProductCardfinal()
-//        }
 
-//        // Update Metro Price Screen to accept metroCardNumber and amount as arguments
+        composable("crowwwd_funding"){
+            FundingPreview(navController)
+        }
+        composable(
+            route = "finalTrading/{amount}",
+            arguments = listOf(navArgument("amount") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val amount = backStackEntry.arguments?.getString("amount") ?: ""
+            FinalTradingScreen(navController, amount)
+        }
+
+
+        composable("productCardFinal") {
+            ProductCardfinal()
+        }
+
+       // Update Metro Price Screen to accept metroCardNumber and amount as arguments
         composable(
             route = "metro_price/{metroCardNumber}/{amount}",
             arguments = listOf(
@@ -112,26 +119,25 @@ fun BottomNavGraph(navController: NavHostController) {
             val amount = backStackEntry.arguments?.getString("amount") ?: ""
             MetroPriceScreen(navController, metroCardNumber, amount)
         }
-//
-//        composable(
-//            route = "add_money/{name}",
-//            arguments = listOf(navArgument("name") { type = NavType.StringType })
-//        ) { backStackEntry ->
-//            val name = backStackEntry.arguments?.getString("name") ?: ""
-//            AddMoney(navController, name)
-//        }
-//
-//        composable(
-//            route = "crowdfunding_payment/{name}/{amount}",
-//            arguments = listOf(
-//                navArgument("name") { type = NavType.StringType },
-//                navArgument("amount") { type = NavType.StringType }
-//            )
-//        ) { backStackEntry ->
-//            val name = backStackEntry.arguments?.getString("name") ?: ""
-//            val amount = backStackEntry.arguments?.getString("amount") ?: ""
-//            CrowdFundingPaymentScreen(navController, name, amount)
-//        }
-//    }
-//}
+
+        composable(
+            route = "add_money/{name}",
+            arguments = listOf(navArgument("name") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val name = backStackEntry.arguments?.getString("name") ?: ""
+            AddMoney(navController, name)
+        }
+
+        composable(
+            route = "crowdfunding_payment/{name}/{amount}",
+            arguments = listOf(
+                navArgument("name") { type = NavType.StringType },
+                navArgument("amount") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val name = backStackEntry.arguments?.getString("name") ?: ""
+            val amount = backStackEntry.arguments?.getString("amount") ?: ""
+            CrowdFundingPaymentScreen(navController, name, amount)
+        }
+
     }}

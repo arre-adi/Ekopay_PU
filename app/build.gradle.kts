@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -38,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -78,6 +80,11 @@ dependencies {
     implementation("androidx.camera:camera-camera2:${camerax_version}")
 
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    //gemini
+    implementation ("com.google.ai.client.generativeai:generativeai:0.9.0")
+    //ycharts
+    implementation ("co.yml:ycharts:2.1.0")
+
 
 }
 
